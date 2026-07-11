@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizzatore Caratteri</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="top-red-line-container">
+        <div class="red-line line-left"></div>
+        <div id="master-trigger" class="red-box">
+            <span class="bold-text">Simone Mascia <span class="bold-text">Portfolio</span></span>
+        </div>
+        <div class="red-line line-middle"></div>
+        <div id="audio-toggle-wrapper" class="hidden" style="display: flex; align-items: center;">
+            <div id="audio-toggle-btn" class="red-box toggle-box">
+                <svg id="icon-audio-off" width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                </svg>
+                <svg id="icon-audio-on" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"
+                    style="display: none;">
+                    <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
+                    <path d="M15.54 8.46a5 5 0 0 1 0 7.07" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round"></path>
+                    <path d="M19.07 4.93a10 10 0 0 1 0 14.14" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round"></path>
+                </svg>
+            </div>
+            <div class="red-line" style="width: 20px;"></div>
+        </div>
+        <div id="theme-switch-btn" class="red-box toggle-box">
+            <div class="toggle-handle"></div>
+        </div>
+        <div class="red-line line-right"></div>
+    </div>
+
+    <div class="portfolio-container">
+        <!-- Sidebar sinistra con elenco progetti -->
+        <div class="sidebar">
+            <ul class="projects-list">
+                <li id="project-master" class="project-item">
+                    <ul class="subprojects-list hidden" id="subprojects-master">
+                        <li id="project-bio" class="project-item">
+                            <span class="project-arrow">&#8594;</span> <span class="project-name">BIO</span>
+                        </li>
+                        <li id="project-cantieri" class="project-item">
+                            <span class="project-arrow">&#8594;</span> <span class="project-name">Cantieri Culturali
+                                Armungia</span>
+                            <ul class="subprojects-list hidden" id="subprojects-cantieri">
+                                <li class="project-item subproject-item" id="project-cantieri-logo">
+                                    <span class="project-arrow">&#8594; &#8594;</span> <span
+                                        class="project-name">Logo</span>
+                                </li>
+                                <li class="project-item subproject-item" id="project-cantieri-comunicazione">
+                                    <span class="project-arrow">&#8594; &#8594;</span> <span
+                                        class="project-name">Comunicazione</span>
+                                </li>
+                                <li class="project-item subproject-item" id="project-cantieri-catalogo">
+                                    <span class="project-arrow">&#8594; &#8594;</span> <span
+                                        class="project-name">Catalogo</span>
+                                </li>
+                                <li class="project-item subproject-item" id="project-cantieri-cca2">
+                                    <span class="project-arrow">&#8594; &#8594;</span> <span class="project-name">CCA
+                                        Seconda edizione</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="project-lussu" class="project-item">
+                            <span class="project-arrow">&#8594;</span> <span class="project-name">Emilio Lussu:
+                                Profondamente
+                                umano e nuovo</span>
+                        </li>
+                        <li id="project-fonda" class="project-item">
+                            <span class="project-arrow">&#8594;</span> <span class="project-name">Farsi un libro,
+                                oggi</span>
+                            <ul class="subprojects-list hidden" id="subprojects-fonda">
+                                <li class="project-item subproject-item" id="project-fonda-libro">
+                                    <span class="project-arrow">&#8594; &#8594;</span> <span
+                                        class="project-name">Libro</span>
+                                </li>
+                                <li class="project-item subproject-item" id="project-fonda-mappa">
+                                    <span class="project-arrow">&#8594; &#8594;</span> <span
+                                        class="project-name">Mappa</span>
+                                </li>
+                            </ul>
+                        </li>
+                        <li id="project-fondazione" class="project-item">
+                            <span class="project-arrow">&#8594;</span> <span class="project-name">Fondazione</span>
+                        </li>
+                        <!-- Altri progetti verranno aggiunti qui -->
+                        <li id="project-boo" class="project-item">
+                            <span class="project-arrow">&#8594;</span> <span class="project-name">Boo: Fantasmi come
+                                te</span>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Area di destra con il contenuto del progetto -->
+        <div class="project-content">
+            <div id="bio-viewer" class="viewer-container hidden">
+                <div class="project-description">
+                    <p class="category-label">Doverose presentazioni</p>
+                    <p>
+                        <span class="project-arrow">&#8226;</span>
+                        Sono Simone Mascia, vengo da Armungia,
+                        un piccolo paese in provincia di Cagliari
+                        e sono uno studente dell’ISIA di Roma.
+                    <p></p> <span class="project-arrow">&#8226;</span>
+                    Oltre alla grafica, mi piace leggere
+                    (sono un appassionato di fumetti e mi piacciono tanto i romanzi
+                    di fantascienza)
+                    e scattare qualche foto qua e la.<p></p>
+                    <p></p><span class="project-arrow">&#8226;</span>
+                    Nell’ambito lavorativo ho imparato
+                    l’importanza del lavoro in team
+                    e della fase di ricerca che viene prima
+                    della realizzazione pratica.
+                    Credo che la parte principale del nostro lavoro
+                    sia parlare a tutti, ma non smettendo mai
+                    di cercare nuove forme per farlo.<p></p>
+                    <p></p><span class="project-arrow">&#8226;</span>
+                    Vi lascio ai progetti.<p></p>
+                    </p>
+                </div>
+            </div>
+
+            <div id="cantieri-viewer" class="viewer-container hidden">
+                <div class="project-description">
+                    <p class="category-label">Editoria, Identità visiva, Social</p>
+                    <p>
+                        <span class="project-arrow">&#8226;</span> La rassegna Cantieri Culturali si è svolta ad
+                        Armungia tra i mesi di aprile e giugno 2025, parte integrante del progetto comunale finanziato
+                        dal Piano Nazionale di Ripresa e Resilienza per l’Attrattività dei borghi storici.
+                    </p>
+                    <p> <span class="project-arrow">&#8226;</span> Concepita come contenitore di laboratori, attività di
+                        creazione artistica e animazione sociale, l’iniziativa comprendeva workshop, installazioni
+                        d’arte, una giornata dedicata alla musica per le vie del centro storico e una mostra
+                        fotografica, evento finale della rassegna.</p>
+                    <p> <span class="project-arrow">&#8226;</span> Lavorando in sinergia con il direttore del Museo
+                        storico “Emilio e Joyce Lussu”, Alberto Cabboi, mi sono occupato dell’identità visiva e della
+                        comunicazione.</p>
+                </div>
+            </div>
+
+            <div id="fondazione-viewer" class="viewer-container hidden">
+                <div class="project-description">
+                    <p class="category-label">Type Design</p>
+                    <p>
+
+                        <span class="project-arrow">&#8226;</span>
+                        Una font per la lettura deve servire il pubblico.
+                        Il suo scopo principale è la leggibilità,
+                        l’accessibilità del testo e il comfort visivo di chi legge.
+                        È quindi un progeo democratico e di servizio,
+                        proprio come lo statuto di una vera fondazione.
+                    <p></p> <span class="project-arrow">&#8226;</span>
+                    Nella saga di Isaac Asimov,
+                    la Fondazione nasce per preservare la conoscenza
+                    e la cultura galattica durante il crollo dell’Impero.
+                    Quale mezzo migliore per preservare
+                    e tramandare la conoscenza se non la tipograﬁa?
+                    <p>
+                        <span class="project-arrow">&#8226;</span>
+                        È stato il mio primo approccio con la progettazione
+                        tipografica, che reputo essenziale nel bagaglio
+                        culturale di un grafico; ovviamente il lavoro non è concluso,
+                        infatti troverete solo il peso regular (nemmeno del tutto ultimato), ma tempo al tempo!
+                    </p>
+                </div>
+                <div class="viewer-columns">
+                    <div class="details-panel">
+                        <div class="preview-box">
+                            <div class="metric-line ascender" title="Ascendente"></div>
+                            <div class="metric-line cap-height" title="Altezza Maiuscole"></div>
+                            <div class="metric-line ex-height" title="Altezza a x"></div>
+                            <div class="metric-line baseline" title="Linea di base"></div>
+                            <div class="metric-line descender" title="Discendente"></div>
+                            <span id="big-preview">A</span>
+                        </div>
+                        <div class="info-box">
+                            <p><strong>Nome Glifo:</strong> <span id="info-name">A</span></p>
+                            <p><strong>Unicode decimal:</strong> <span id="info-decimal">65</span></p>
+                            <p><strong>Unicode hex:</strong> <span id="info-hex">0041</span></p>
+                        </div>
+                    </div>
+
+                    <div class="grid-panel">
+                        <h3>Glifi</h3>
+                        <div class="glyph-grid" id="basic-latin-grid"></div>
+
+                        <div class="testo-prova-header">
+                            <h3>Testo di prova</h3>
+                            <input type="range" id="font-size-slider" min="8" max="100" value="60">
+                        </div>
+                        <div class="type-tester" id="type-tester" contenteditable="true" spellcheck="false">Fondazione
+                        </div>
+                    </div>
+                </div> <!-- Close viewer-columns -->
+            </div>
+
+            <div id="lussu-viewer" class="viewer-container hidden">
+                <div class="project-description">
+                    <p class="category-label">Editoria</p>
+                    <p><span class="project-arrow">&#8226;</span> Nato come compendio documentario di “Profondamente
+                        umano e nuovo”, la mostra storico-fotografica svoltasi ad Armungia per omaggiare la figura di
+                        Emilio Lussu, questo catalogo ne raccoglie e ne fissa la memoria.
+                    <p><span class="project-arrow">&#8226;</span>
+                        Attraverso le sue pagine, il percorso espositivo si trasforma in un racconto che prende le mosse
+                        proprio dalle parole più intime e cariche di attaccamento dell'autore:
+
+
+                        “Il mio sogno sarebbe di morire ad Armungia. Magari nel mio orto, sotto una grande quercia che
+                        mi ha sempre affascinato; credo abbia duemila anni e mi dà il senso del tempo vero, non quello a
+                        misura d’uomo. <br>Tornerò in Sardegna, se ne avrò la forza”.</p>
+                    <video src="assets/3/ppp.mp4" autoplay loop muted playsinline
+                        style="width: 80%; border: 1px solid #e0e0e0; margin-top: 15px;"></video>
+                    <img src="assets/3/ko.png" alt="Emilio Lussu"
+                        style="width: 100%; border: 1px solid #e0e0e0; margin-top: 15px;">
+                    <video src="assets/3/ok.mp4" autoplay loop muted playsinline
+                        style="width: 50%; border: 1px solid #e0e0e0; margin-top: 15px;"></video>
+                    <p><span class="project-arrow">&#8226;</span>
+                        Abbinate al catalogo sono state realizzate due cartoline, nel retro è stata replicata la grafica
+                        "infinita" della copertina del catalogo.</p>
+
+                    <div class="postcards-container">
+                        <div class="postcard" onclick="this.classList.toggle('flipped')">
+                            <div class="postcard-inner">
+                                <div class="postcard-front">
+                                    <img src="assets/3/01.png" alt="Emilio Lussu Front 1">
+                                </div>
+                                <div class="postcard-back">
+                                    <img src="assets/3/02.png" alt="Emilio Lussu Back 1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="postcard" onclick="this.classList.toggle('flipped')">
+                            <div class="postcard-inner">
+                                <div class="postcard-front">
+                                    <img src="assets/3/03.png" alt="Emilio Lussu Front 2">
+                                </div>
+                                <div class="postcard-back">
+                                    <img src="assets/3/04.png" alt="Emilio Lussu Back 2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="fonda-viewer" class="viewer-container hidden">
+                <div class="project-description">
+                    <p class="category-label">Ricerca, Editoria</p>
+
+                    <p><span class="project-arrow">&#8226;</span>
+                        Farsi un libro, oggi è una raccolta
+                        di opinioni, ipotesi e ragionamenti
+                        sul mondo dell’editoria italiana
+                        e sul progetto editoriale in senso lato.
+                        L’idea nasce per denunciare
+                        una sempre più accentuata frattura
+                        tra commercio e cultura del progetto,
+                        di fatto, in un mondo che produce libri
+                        a ritmi forsennati, il buon progetto
+                        sembra essere diventato l’eccezione.
+                    </p>
+                    <p><span class="project-arrow">&#8226;</span> Diploma accademico di I livello
+                    </p>
+                    <p><span class="project-arrow">&#8226;</span> Corso di Design
+                    </p>
+                    <p><span class="project-arrow">&#8226;</span> A.A. 2024-2025
+                    </p>
+                    <p><span class="project-arrow">&#8226;</span> ISIA Roma Design</p>
+                    <p><span class="project-arrow">&#8226;</span>
+                        Relatrice: Rossella Caruso
+                    <p><span class="project-arrow">&#8226;</span> Correlatore: Giovanni Lussu
+                    </p>
+                </div>
+            </div>
+
+            <div id="libro-viewer" class="viewer-container hidden">
+                <div class="project-description">
+
+                    <p><span class="project-arrow">&#8226;</span> Il volume ripercorre la storia del libro e le
+                        trasformazioni
+                        che lo hanno
+                        reso l’oggetto che tutti conosciamo.
+                        Ne analizza caratteristiche e criticità, sia dal punto di vista tecnico che commerciale.</p>
+                    <video src="assets/4/1.mp4" autoplay loop muted playsinline
+                        style="width: 80%; border: 1px solid #e0e0e0;"></video>
+                    <img src="assets/4/hhh.jpg" alt="Libro 1"
+                        style="width: 100%; border: 1px solid #e0e0e0; margin-top: 15px;">
+                    <img src="assets/4/t.jpg" alt="Libro 2"
+                        style="width: 100%; border: 1px solid #e0e0e0; margin-top: 15px;">
+                    <img src="assets/4/jjj.jpg" alt="Libro 3"
+                        style="width: 100%; border: 1px solid #e0e0e0; margin-top: 15px;">
+                </div>
+            </div>
+
+            <div id="mappa-viewer" class="viewer-container hidden">
+                <div class="project-description">
+                    <p><span class="project-arrow">&#8226;</span> Abbinato al volume che presenta la parte di ricerca,
+                        ho creato
+                        La mappa delle norme redazionali per una lettura agevole, in formato
+                        50x70, ripiegabile in un fuori formato (proprio come le mappe
+                        pieghevoli) che contiene, a mio avviso, le norme editoriali per una lettura
+                        "agevole".
+                    <p><span class="project-arrow">&#8226;</span>
+                        Sono quindi una serie di “regole” che ho estrapolato dalla ricerca storica
+                        e dallo studio di libri tecnici sull’argomento.
+                    <p><span class="project-arrow">&#8226;</span>
+                        La scelta di un formato inusuale come questo nasce per mostrare
+                        in contemporanea tutti i punti che ho descritto, senza doverli andare
+                        a cercare tra le pagine, come è solito in questo tipo di file/opuscoli.
+                        Il libro e la mappa sono frutto dell’applicazione delle sopracitate
+                        regole e vanno presi quindi come “manifesto” della tesi stessa.</p>
+                    <div class="map-interactive-container closed" onclick="this.classList.toggle('closed')">
+                        <div class="map-wrapper">
+                            <div class="map-col col-0">
+                                <div class="map-row top-row">
+                                    <div class="map-face"></div>
+                                    <div class="map-back"></div>
+                                </div>
+                                <div class="map-row bottom-row">
+                                    <div class="map-face"></div>
+                                    <div class="map-back"></div>
+                                </div>
+                                <div class="map-col col-1">
+                                    <div class="map-row top-row">
+                                        <div class="map-face"></div>
+                                        <div class="map-back"></div>
+                                    </div>
+                                    <div class="map-row bottom-row">
+                                        <div class="map-face"></div>
+                                        <div class="map-back"></div>
+                                    </div>
+                                    <div class="map-col col-2">
+                                        <div class="map-row top-row">
+                                            <div class="map-face"></div>
+                                            <div class="map-back"></div>
+                                        </div>
+                                        <div class="map-row bottom-row">
+                                            <div class="map-face"></div>
+                                            <div class="map-back"></div>
+                                        </div>
+                                        <div class="map-col col-3">
+                                            <div class="map-row top-row">
+                                                <div class="map-face"></div>
+                                                <div class="map-back"></div>
+                                            </div>
+                                            <div class="map-row bottom-row">
+                                                <div class="map-face"></div>
+                                                <div class="map-back"></div>
+                                            </div>
+                                            <div class="map-col col-4">
+                                                <div class="map-row top-row">
+                                                    <div class="map-face"></div>
+                                                    <div class="map-back"></div>
+                                                </div>
+                                                <div class="map-row bottom-row">
+                                                    <div class="map-face"></div>
+                                                    <div class="map-back"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="logo-viewer" class="viewer-container hidden">
+                <div class="project-description">
+                    <p><span class="project-arrow">&#8226;</span> Il logo (variabile) è composto in Frutiger Bold.<br>
+                        Le strade percorribili erano due, un approccio totalmente tipografico o la creazione di simboli
+                        per ogni tipo di attività, la prima idea ha avuto la meglio.</p>
+                    <img src="assets/2/ok.png" alt="Sviluppo Logo"
+                        style="width: 100%; margin-top: 15px; mix-blend-mode: multiply;">
+                </div>
+            </div>
+
+            <div id="comunicazione-viewer" class="viewer-container hidden">
+                <div class="project-description">
+                    <p><span class="project-arrow">&#8226;</span> La serie di locandine realizzate per ogni
+                        evento-workshop specifico.</p>
+                    <div class="comunicazione-images">
+                        <img src="assets/2/qwer.jpg" class="first-image active" alt="Comunicazione 1">
+                        <img src="assets/2/qwe.jpg" alt="Comunicazione 2">
+                        <img src="assets/2/qw.jpg" alt="Comunicazione 3">
+                        <img src="assets/2/q.jpg" alt="Comunicazione 4">
+                    </div>
+                </div>
+            </div>
+
+            <div id="catalogo-viewer" class="viewer-container hidden">
+                <div class="project-description">
+
+                    <p><span class="project-arrow">&#8226;</span>
+                        Sul finire dell'esperienza di CCA si è svolta una mostra fotografica, che vedeva protagonisti
+                        Fausto Ascedu, Marcello Stefanini, Simone Mizzotti. <br>La pubblicazione raccoglie in novanta
+                        pagine alcune tra le più belle immagini in esposizione arricchite dal testo di presentazione
+                        della
+                        mostra.</p>
+                    <video src="assets/2/3/1.mp4" autoplay loop muted playsinline
+                        style="width: 80%; border: 1px solid #e0e0e0;"></video>
+                    <img src="assets/2/3/fd.jpg" alt="Catalogo"
+                        style="width: 100%; border: 1px solid #e0e0e0; margin-top: 15px;">
+                    <p><span class="project-arrow">&#8226;</span>
+                        In allegato al catalogo venivano fornite due cartoline fotografiche, nel retro un giochetto
+                        grafico formava la scritta "Armungia".</p>
+                    <div class="postcards-container">
+                        <div class="postcard" onclick="this.classList.toggle('flipped')">
+                            <div class="postcard-inner">
+                                <div class="postcard-front">
+                                    <img src="assets/2/cartoline.jpg" alt="Cartolina Front 1">
+                                </div>
+                                <div class="postcard-back">
+                                    <img src="assets/2/cartoline2.jpg" alt="Cartolina Back 1">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="postcard" onclick="this.classList.toggle('flipped')">
+                            <div class="postcard-inner">
+                                <div class="postcard-front">
+                                    <img src="assets/2/cartoline3.jpg" alt="Cartolina Front 2">
+                                </div>
+                                <div class="postcard-back">
+                                    <img src="assets/2/cartoline4.jpg" alt="Cartolina Back 2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="cca2-viewer" class="viewer-container hidden">
+                <div class="project-description">
+                    <p><span class="project-arrow">&#8226;</span> La seconda edizione di Cantieri Culturali Armungia,
+                        tenutasi nell'estate del 2026
+                        ha visto la progettazione di alcuni manifesti e locandine per i vari eventi.</p>
+                    <div class="image-grid-2">
+                        <img src="assets/2/3/gh.jpg" alt="CCA2 Immagine 1">
+                        <img src="assets/2/3/fausto.jpg" alt="CCA2 Immagine 2">
+                        <img src="assets/2/3/11.jpg" alt="CCA2 Immagine 3">
+                        <img src="assets/2/3/daaaa2.jpg" alt="CCA2 Immagine 4">
+                        <img src="assets/2/3/daaaa.jpg" alt="CCA2 Immagine 5">
+                    </div>
+                </div>
+            </div>
+
+            <div id="boo-viewer" class="viewer-container hidden">
+                <div class="project-description">
+                    <p class="category-label">Illustrazione, Editoria</p>
+                    <p><span class="project-arrow">&#8226;</span> Fantasmi come te è un piccolo volume per bambini che
+                        usa le leggende dei fantasmi italiani per educare i più piccoli a temi difficili,
+                        quali emarginazione, diversità e solitudine.
+                    <p><span class="project-arrow">&#8226;</span> I disegni sono realizzati in digitale e sono
+                        accompagnati dall'intramontabile Meta di Erik Spiekermann.
+                        </I></p>
+
+                    <div class="book-container">
+                        <!-- Immagine invisibile per dare l'altezza corretta al contenitore -->
+                        <img src="assets/5/lopo.jpg"
+                            style="width: 100%; visibility: hidden; display: block; border: none; margin: 0; pointer-events: none;">
+
+                        <!-- Basi statiche (prima metà a sinistra, ultima metà a destra) -->
+                        <div class="book-page-static left">
+                            <div class="bg left-half" style="background-image: url('assets/5/lopo.jpg')"></div>
+                        </div>
+                        <div class="book-page-static right">
+                            <div class="bg right-half" style="background-image: url('assets/5/lopo11.jpg')"></div>
+                        </div>
+
+                        <!-- Pagine sfogliabili (10 pagine che collegano le 11 immagini) -->
+                        <div class="book-page flippable" style="z-index: 10;" onclick="turnBookPage(this)">
+                            <div class="front">
+                                <div class="bg right-half" style="background-image: url('assets/5/lopo.jpg')"></div>
+                            </div>
+                            <div class="back">
+                                <div class="bg left-half" style="background-image: url('assets/5/lopo2.jpg')"></div>
+                            </div>
+                        </div>
+
+                        <div class="book-page flippable" style="z-index: 9;" onclick="turnBookPage(this)">
+                            <div class="front">
+                                <div class="bg right-half" style="background-image: url('assets/5/lopo2.jpg')"></div>
+                            </div>
+                            <div class="back">
+                                <div class="bg left-half" style="background-image: url('assets/5/lopo3.jpg')"></div>
+                            </div>
+                        </div>
+
+                        <div class="book-page flippable" style="z-index: 8;" onclick="turnBookPage(this)">
+                            <div class="front">
+                                <div class="bg right-half" style="background-image: url('assets/5/lopo3.jpg')"></div>
+                            </div>
+                            <div class="back">
+                                <div class="bg left-half" style="background-image: url('assets/5/lopo4.jpg')"></div>
+                            </div>
+                        </div>
+
+                        <div class="book-page flippable" style="z-index: 7;" onclick="turnBookPage(this)">
+                            <div class="front">
+                                <div class="bg right-half" style="background-image: url('assets/5/lopo4.jpg')"></div>
+                            </div>
+                            <div class="back">
+                                <div class="bg left-half" style="background-image: url('assets/5/lopo5.jpg')"></div>
+                            </div>
+                        </div>
+
+                        <div class="book-page flippable" style="z-index: 6;" onclick="turnBookPage(this)">
+                            <div class="front">
+                                <div class="bg right-half" style="background-image: url('assets/5/lopo5.jpg')"></div>
+                            </div>
+                            <div class="back">
+                                <div class="bg left-half" style="background-image: url('assets/5/lopo6.jpg')"></div>
+                            </div>
+                        </div>
+
+                        <div class="book-page flippable" style="z-index: 5;" onclick="turnBookPage(this)">
+                            <div class="front">
+                                <div class="bg right-half" style="background-image: url('assets/5/lopo6.jpg')"></div>
+                            </div>
+                            <div class="back">
+                                <div class="bg left-half" style="background-image: url('assets/5/lopo7.jpg')"></div>
+                            </div>
+                        </div>
+
+                        <div class="book-page flippable" style="z-index: 4;" onclick="turnBookPage(this)">
+                            <div class="front">
+                                <div class="bg right-half" style="background-image: url('assets/5/lopo7.jpg')"></div>
+                            </div>
+                            <div class="back">
+                                <div class="bg left-half" style="background-image: url('assets/5/lopo8.jpg')"></div>
+                            </div>
+                        </div>
+
+                        <div class="book-page flippable" style="z-index: 3;" onclick="turnBookPage(this)">
+                            <div class="front">
+                                <div class="bg right-half" style="background-image: url('assets/5/lopo8.jpg')"></div>
+                            </div>
+                            <div class="back">
+                                <div class="bg left-half" style="background-image: url('assets/5/lopo9.jpg')"></div>
+                            </div>
+                        </div>
+
+                        <div class="book-page flippable" style="z-index: 2;" onclick="turnBookPage(this)">
+                            <div class="front">
+                                <div class="bg right-half" style="background-image: url('assets/5/lopo9.jpg')"></div>
+                            </div>
+                            <div class="back">
+                                <div class="bg left-half" style="background-image: url('assets/5/lopo10.jpg')"></div>
+                            </div>
+                        </div>
+
+                        <div class="book-page flippable" style="z-index: 1;" onclick="turnBookPage(this)">
+                            <div class="front">
+                                <div class="bg right-half" style="background-image: url('assets/5/lopo10.jpg')"></div>
+                            </div>
+                            <div class="back">
+                                <div class="bg left-half" style="background-image: url('assets/5/lopo11.jpg')"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Fullscreen Overlay per media -->
+    <div id="fullscreen-overlay" class="hidden">
+        <div id="fullscreen-back-btn">&#8592;</div>
+        <div id="fullscreen-content-container"></div>
+    </div>
+
+    <!-- Contenitore Orbita -->
+    <div id="orbit-container"></div>
+
+    <!-- Custom Cursor -->
+    <div id="custom-cursor-base">&#8598;</div>
+    <div id="custom-cursor">&#8598;</div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
