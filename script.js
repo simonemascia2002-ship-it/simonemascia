@@ -262,7 +262,9 @@ document.addEventListener("DOMContentLoaded", () => {
         const arrow = btnCantieri.querySelector('.project-arrow');
         const cantieriViewer = document.getElementById('cantieri-viewer');
 
-        if (btnCantieri.classList.contains('active')) {
+        const hasActiveSubproject = Array.from(subprojectsCantieri.querySelectorAll('.subproject-item')).some(el => el.classList.contains('active'));
+
+        if (btnCantieri.classList.contains('active') && !hasActiveSubproject) {
             subprojectsCantieri.classList.add('hidden');
             btnCantieri.classList.remove('active');
             arrow.textContent = '→';
@@ -285,6 +287,16 @@ document.addEventListener("DOMContentLoaded", () => {
             btnCantieri.classList.add('active');
             arrow.textContent = '←';
 
+            // Chiudi viewer aperti e disattiva i sottoprogetti (se c'era un sottoprogetto attivo)
+            document.querySelectorAll('.viewer-container').forEach(viewer => {
+                viewer.classList.add('hidden');
+            });
+            subprojectsCantieri.querySelectorAll('.subproject-item').forEach(el => {
+                el.classList.remove('active');
+                const otherArrow = el.querySelector('.project-arrow');
+                if (otherArrow) otherArrow.textContent = '→ →';
+            });
+
             if (cantieriViewer) cantieriViewer.classList.remove('hidden');
         }
 
@@ -301,7 +313,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const arrow = btnFonda.querySelector('.project-arrow');
 
-            if (btnFonda.classList.contains('active')) {
+            const hasActiveSubproject = Array.from(subprojectsFonda.querySelectorAll('.subproject-item')).some(el => el.classList.contains('active'));
+
+            if (btnFonda.classList.contains('active') && !hasActiveSubproject) {
                 subprojectsFonda.classList.add('hidden');
                 btnFonda.classList.remove('active');
                 arrow.textContent = '→';
@@ -322,6 +336,16 @@ document.addEventListener("DOMContentLoaded", () => {
                 subprojectsFonda.classList.remove('hidden');
                 btnFonda.classList.add('active');
                 arrow.textContent = '←';
+
+                // Chiudi viewer aperti e disattiva i sottoprogetti (se c'era un sottoprogetto attivo)
+                document.querySelectorAll('.viewer-container').forEach(viewer => {
+                    viewer.classList.add('hidden');
+                });
+                subprojectsFonda.querySelectorAll('.subproject-item').forEach(el => {
+                    el.classList.remove('active');
+                    const otherArrow = el.querySelector('.project-arrow');
+                    if (otherArrow) otherArrow.textContent = '→ →';
+                });
 
                 if (fondaViewer) {
                     fondaViewer.classList.remove('hidden');
@@ -361,6 +385,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 libroViewer.classList.add('hidden');
                 btnFondaLibro.classList.remove('active');
                 arrow.textContent = '→ →';
+
+                if (btnFonda && btnFonda.classList.contains('active') && fondaViewer) {
+                    fondaViewer.classList.remove('hidden');
+                }
             } else {
                 // Chiudi gli altri viewer aperti
                 document.querySelectorAll('.viewer-container').forEach(viewer => {
@@ -392,6 +420,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 mappaViewer.classList.add('hidden');
                 btnFondaMappa.classList.remove('active');
                 arrow.textContent = '→ →';
+
+                if (btnFonda && btnFonda.classList.contains('active') && fondaViewer) {
+                    fondaViewer.classList.remove('hidden');
+                }
             } else {
                 // Chiudi gli altri viewer aperti
                 document.querySelectorAll('.viewer-container').forEach(viewer => {
@@ -507,7 +539,7 @@ document.addEventListener("DOMContentLoaded", () => {
             comImagesContainer.addEventListener('click', nextImage);
 
             comImagesContainer.addEventListener('mouseenter', () => {
-                slideInterval = setInterval(nextImage, 800); // Scorre ogni 800ms
+                slideInterval = setInterval(nextImage, 400); // Scorre ogni 400ms
             });
 
             comImagesContainer.addEventListener('mouseleave', () => {
